@@ -99,7 +99,9 @@
     "webpack-dev-server": "^3.7.1",
     "worker-loader": "^2.0.0"
   },
-  "dependencies": {},
+  "dependencies": {
+    "puppeteer": "^1.19.0"
+  },
   "scripts": {
     "bootstrap": "npm install && lerna bootstrap --hoist react",
     "install-ci": "npm ci && lerna bootstrap --hoist react",
@@ -122,7 +124,8 @@
     "screenshot": "NODE_ENV=development storybook-chrome-screenshot -c stories --parallel 8 --inject-files stories/injected.js --browser-timeout 1200000",
     "screenshot-ci": "npm run screenshot -- --puppeteer-launch-config '{\"executablePath\": \"/usr/bin/google-chrome\", \"headless\": false, \"args\":[\"--use-gl=swiftshader\", \"--no-sandbox\",\"--disable-setuid-sandbox\", \"--disable-dev-shm-usage\", \"--headless\", \"--mute-audio\"]}'",
     "screenshot-debug": "npm run screenshot -- --parallel 1 --debug --puppeteer-launch-config '{\"headless\": false}'",
-    "ci": "npm run install-ci && NODE_ENV=production npm run build && npm run lint && npm run flow && npm test && NODE_ENV=production npm run screenshot-ci"
+    "ci": "npm run install-ci && NODE_ENV=production npm run build && npm run lint && npm run flow && npm test && NODE_ENV=production npm run screenshot-ci",
+    "server": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js --host localhost --port 9898"
   },
   "workspaces": [
     "packages/*"
