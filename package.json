@@ -100,7 +100,7 @@
     "worker-loader": "^2.0.0"
   },
   "dependencies": {
-    "puppeteer": "^1.19.0"
+    "puppeteer": "^1.13.0"
   },
   "scripts": {
     "bootstrap": "npm install && lerna bootstrap --hoist react",
